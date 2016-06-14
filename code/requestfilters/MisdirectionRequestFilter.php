@@ -44,23 +44,23 @@ class MisdirectionRequestFilter implements RequestFilter {
 
 		$requestURL = $request->getURL();
 		$configuration = Config::inst();
-		foreach($configuration->get('Director', 'rules') as $segment => $controller) {
+		// foreach($configuration->get('Director', 'rules') as $segment => $controller) {
 
-			// Retrieve the specific director rules.
+		// 	// Retrieve the specific director rules.
 
-			if(($position = strpos($segment, '$')) !== false) {
-				$segment = rtrim(substr($segment, 0, $position), '/');
-			}
+		// 	if(($position = strpos($segment, '$')) !== false) {
+		// 		$segment = rtrim(substr($segment, 0, $position), '/');
+		// 	}
 
-			// Determine if the current request matches a specific director rule.
+		// 	// Determine if the current request matches a specific director rule.
 
-			if($segment && (strpos($requestURL, $segment) === 0)) {
+		// 	if($segment && (strpos($requestURL, $segment) === 0)) {
 
-				// Continue processing the response.
+		// 		// Continue processing the response.
 
-				return true;
-			}
-		}
+		// 		return true;
+		// 	}
+		// }
 
 		// Bypass the request filter when using the misdirected GET parameter.
 
